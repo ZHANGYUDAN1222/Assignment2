@@ -87,6 +87,13 @@ class TravelTrackerApp(App):
             self.root.ids.places_detail.add_widget(place_btn)
             place_btn.bind(on_release = self.change_status)
 
+    def clear_btn(self):
+        """Bind to clear button, clear all input"""
+        self.root.ids.new_name.text = ''
+        self.root.ids.new_country.text = ''
+        self.root.ids.new_priority.text = ''
+        self.root.ids.terminal = ''
+
 
 if __name__ == '__main__':
     TravelTrackerApp().run()
