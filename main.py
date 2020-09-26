@@ -17,8 +17,15 @@ from placecollection import PlaceCollection
 KEYs = {'Visited': 3, 'Priority': 2, 'Country': 1, 'Name': 0}
 
 class TravelTrackerApp(App):
-    """..."""
-    pass
+    """Create the application from App"""
+    current_key = StringProperty()
+    key_codes = ListProperty()
+
+    def __init__(self, **kwargs):
+        """Construct main app"""
+        super().__init__(**kwargs)
+        self.place_collection = PlaceCollection()
+        self.place_collection.load_places('places.csv')
 
 
 if __name__ == '__main__':
