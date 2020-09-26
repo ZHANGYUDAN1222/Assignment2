@@ -26,6 +26,10 @@ def run_tests():
     new_place.mark_visited()
     print(new_place)
 
+    # test mark_unvisited
+    new_place.mark_unvisited()
+    print(new_place)
+
 
 
 run_tests()
