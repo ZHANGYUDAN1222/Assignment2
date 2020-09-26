@@ -70,6 +70,23 @@ class TravelTrackerApp(App):
         self.clear_all()
         self.create_widgets()
 
+    def create_widgets(self, key='Visited'):
+        """Create buttons from dictionary entries and add them to the GUI."""
+        self.clear_all()
+        self.place_collection.sort_places(key)
+        self.num_nplaces()
+        for places in self.place_collection.places_list:
+            if places[3] == 'n':
+                visit_status = ''
+                bkcolor = (1, 0.61, 0.61, 1)
+            else:
+                visit_status = '(visited)'
+                bkcolor = (0.3,0.4,0.4,1)
+            place_string = '{} in {}, priority {} {}'.format(places[0], places[1], places[2], visit_status)
+            place_btn = Button(id= places[0], text= place_string,background_color= bkcolor)
+            self.root.ids.places_detail.add_widget(place_btn)
+            place_btn.bind(on_release = self.change_status)
+
 
 if __name__ == '__main__':
     TravelTrackerApp().run()
