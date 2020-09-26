@@ -30,6 +30,8 @@ def run_tests():
     new_place.mark_unvisited()
     print(new_place)
 
+    # test isimportant place
+    new_place.isimportant()
 
 
 run_tests()
