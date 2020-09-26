@@ -27,6 +27,16 @@ class TravelTrackerApp(App):
         self.place_collection = PlaceCollection()
         self.place_collection.load_places('places.csv')
 
+    def build(self):
+        """Build the Kivy GUI"""
+        self.title = "TravelTracker"
+        self.root = Builder.load_file('TravelTracker.kv')
+        self.key_codes =KEYs.keys()
+        self.current_key = self.key_codes[0]
+        self.create_widgets()
+
+        return self.root
+
 
 if __name__ == '__main__':
     TravelTrackerApp().run()
