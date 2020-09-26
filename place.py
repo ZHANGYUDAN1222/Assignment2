@@ -29,3 +29,8 @@ class Place:
         """Return visited for unvisited place"""
         self.v_status = 'v'
         return self.v_status
+
+    def mark_unvisited(self):
+        """Return unvisited for visited place"""
+        self.v_status = 'n'
+        return self.v_status
