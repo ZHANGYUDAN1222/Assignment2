@@ -93,6 +93,32 @@ def validate_new_places():
         except ValueError:  # if input is not a number, loop again
             print('Invalid input; enter a valid number')
 
+def mark_places(place_collection, places_list):
+    """Return a list with changes in visited and unvisited places"""
+    nnum = place_collection.num_nplaces()
+    if nnum == 0:
+        print('No unvisited places')
+    else:
+        place_collection.list_places()
+        print('Enter the number of a place to mark as visited')
+
+        while True:
+            change = input('>>>')
+            if change.strip() == '':
+                print('Input cannot be blank')
+            elif change.isdigit() == 'False':
+                print('Invalid input; enter a valid number')
+            elif int(change) < 0:
+                print('Number must be > 0')
+            elif int(change) > len(places_list):
+                print('Invalid place number')
+            elif places_list[int(change) - 1][3] == 'v':
+                print('That place is already visited')
+            else:
+                places_list[int(change) -1][3] = 'n'
+                break
+        return places_list
+
 
 
 if __name__ == '__main__':
