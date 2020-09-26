@@ -35,3 +35,19 @@ Have a nice day :)""".format(len(place_collection.places_list)))
         else:
             print("Invalid menu choice")
 
+def read_menu():
+    """Return the choice of menu"""
+
+    choice = input("""Menu；
+L - List places
+A - Add new place
+M - Mark a place as visited
+Q - Quit
+>>>""").upper()
+    return choice
+
+
+
+if __name__ == '__main__':
+    main()
+
