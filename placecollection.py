@@ -40,3 +40,11 @@ class PlaceCollection:
         # print(self.places_list)
 
         return self.places_list
+
+    def save_places(self, filename):
+        """Store final data to the csv file"""
+
+        # open the csv file in write mode
+        with open(filename, 'w', newline='') as w_f:
+            writer = csv.writer(w_f)
+            writer.writerows(self.places_list)
