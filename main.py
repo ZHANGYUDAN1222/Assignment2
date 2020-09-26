@@ -69,6 +69,7 @@ class TravelTrackerApp(App):
         self.root.ids.terminal.text = terminal
         self.clear_all()
         self.create_widgets()
+        return self.place_collection.places_list
 
     def create_widgets(self, key='Visited'):
         """Create buttons from dictionary entries and add them to the GUI."""
@@ -97,10 +98,8 @@ class TravelTrackerApp(App):
     def change_status(self, instance):
         """When press button of place, change it visit status"""
         for place in self.place_collection.places_list:
-            # print(instance.text.strip().strip('(visited)'))
             placestring = '{} in {}, priority {}'.format(place[0], place[1], place[2])
-            # print(placestring)
-            if placestring.strip() == instance.text.strip('(visited)').strip():
+            if placestring.strip() == instance.text.replace('(visited)', '').strip():
                 if place[3] == 'v':
                     if place[2] <= 2:
                         terminal = 'You need to visit {}. Get going!'.format(place[0])
