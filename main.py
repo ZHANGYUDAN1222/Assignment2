@@ -94,6 +94,29 @@ class TravelTrackerApp(App):
         self.root.ids.new_priority.text = ''
         self.root.ids.terminal = ''
 
+    def change_status(self, instance):
+        """When press button of place, change it visit status"""
+        for place in self.place_collection.places_list:
+            # print(instance.text.strip().strip('(visited)'))
+            placestring = '{} in {}, priority {}'.format(place[0], place[1], place[2])
+            # print(placestring)
+            if placestring.strip() == instance.text.strip('(visited)').strip():
+                if place[3] == 'v':
+                    if place[2] <= 2:
+                        terminal = 'You need to visit {}. Get going!'.format(place[0])
+                    else:
+                        terminal = 'You need to visit {}.'.format(place[0])
+                    place[3] = 'n'
+                else:
+                    if place[2] <= 2:
+                        terminal = 'You visited {}, Great travelling!'.format(place[0])
+                    else:
+                        terminal = 'You visited {}.'.format(place[0])
+                    place[3] = 'v'
+                self.root.ids.terminal.text = terminal
+            self.clear_all()
+            self.create_widgets()
+
 
 if __name__ == '__main__':
     TravelTrackerApp().run()
