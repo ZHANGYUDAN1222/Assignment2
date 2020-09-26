@@ -27,6 +27,7 @@ def run_tests():
     print("Test sorting - priority:")
     place_collection.sort("priority")
     print(place_collection)
+
     # TODO: Add more sorting tests
 
     # TODO: Test saving places (check CSV file manually to see results)
