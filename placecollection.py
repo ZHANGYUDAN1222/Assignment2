@@ -79,3 +79,16 @@ class PlaceCollection:
         self.places_list = sorted(self.places_list, key= itemgetter(key, 2))
 
         return self.places_list
+
+    def list_places(self, key='visited'):
+        """List places in list"""
+        num = 1
+        for i in self.sort_places(key):
+            if i[3] == 'n':
+                print('*{}. {:10} in {:13} priority {}'.format(num, i[0], i[1], i[2]))
+                num += 1
+            else:
+                print(' {}. {:10} in {:13} priority {}'.format(num, i[0], i[1], i[2]))
+                num += 1
+        print('{} places. You still want to visit {} places.'.format(num-1, self.num_nplaces()))
+
