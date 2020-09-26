@@ -21,7 +21,7 @@ def main():
             place_collection.list_places()
 
         elif choice == 'A':
-            new_place = add_places()
+            new_place = validate_new_places()
             place_collection.add_place(Place(new_place[0], new_place[1], new_place[2], new_place[3]))
 
         elif choice == 'M':
