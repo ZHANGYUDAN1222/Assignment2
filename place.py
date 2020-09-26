@@ -34,3 +34,13 @@ class Place:
         """Return unvisited for visited place"""
         self.v_status = 'n'
         return self.v_status
+
+    def isimportant(self):
+        """Return T if priority <=2, vise reverse"""
+        if self.priority <= 2:
+            # print('{} is important'.format(self.name))
+            return True
+        else:
+            # print('{} is not important'.format(self.name))
+            return False
+
