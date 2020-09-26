@@ -14,6 +14,8 @@ from kivy.properties import ListProperty
 
 from placecollection import PlaceCollection
 
+KEYs = {'Visited': 3, 'Priority': 2, 'Country': 1, 'Name': 0}
+
 class TravelTrackerApp(App):
     """..."""
     pass
