@@ -22,6 +22,9 @@ def run_tests():
 
     print(new_place)
     # TODO: Add more tests, as appropriate, for each method
+    # test mark_visited
+    new_place.mark_visited()
+    print(new_place)
 
 
 
