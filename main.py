@@ -30,7 +30,7 @@ class TravelTrackerApp(App):
     def build(self):
         """Build the Kivy GUI"""
         self.title = "TravelTracker"
-        self.root = Builder.load_file('TravelTracker.kv')
+        self.root = Builder.load_file('app.kv')
         self.key_codes =KEYs.keys()
         self.current_key = self.key_codes[0]
         self.create_widgets()
