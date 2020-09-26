@@ -37,6 +37,12 @@ class TravelTrackerApp(App):
 
         return self.root
 
+    def change_key(self, key):
+        """ handle change of spinner selection, output result to label widget """
+        self.clear_all()
+        # print('change to:',key, KEYs[key])
+        self.create_widgets(key)
+
 
 if __name__ == '__main__':
     TravelTrackerApp().run()
