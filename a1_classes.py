@@ -46,6 +46,53 @@ Q - Quit
 >>>""").upper()
     return choice
 
+def validate_new_places():
+    """Add new place to place object"""
+    f_new_name = True  # set look key word for place name
+
+    while f_new_name:
+        try:
+            new_name = input('Name:')
+            if new_name.strip() == '':
+                raise IndexError
+            else:
+                f_new_name = False
+                f_new_country = True  # set loop key word for country
+        except IndexError:
+            print('Input cannot be blank')
+
+    while f_new_country:
+        try:
+            new_country = input('Country:')
+            if new_country.strip() == '':
+                raise IndexError
+            else:
+                f_new_country = False
+                f_new_priority = True  # set loop key word for priority
+        except IndexError:
+            print('Input cannot be blank')
+
+    while f_new_priority:
+        try:
+            new_priority = input('Priority:')
+            if new_priority.strip() == '':
+                raise IndexError
+            elif new_priority.isdigit() == 'False':
+                raise ValueError
+            elif int(new_priority) <= 0:
+                print('Number must be > 0')
+            else:
+                print('{} in {} (priority {}) added to Travel Tracker'.format(new_name, new_country, new_priority))
+                new_place = [new_name, new_country, int(new_priority), False]
+                return new_place
+                f_new_priority = False
+
+        except IndexError:  # if input is blank, loop again
+            print('Input cannot be blank')
+
+        except ValueError:  # if input is not a number, loop again
+            print('Invalid input; enter a valid number')
+
 
 
 if __name__ == '__main__':
