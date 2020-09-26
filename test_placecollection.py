@@ -47,6 +47,12 @@ def run_tests():
     # TODO: Test saving places (check CSV file manually to see results)
     place_collection.save_places('places.csv')
     # TODO: Add more tests, as appropriate, for each method
+    # Test count number of unvisited places
+    num = place_collection.num_nplaces()
+    print(num)
 
+    # Test listing places
+    print("Test listing:")
+    place_collection.list_places()
 
 run_tests()
