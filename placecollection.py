@@ -33,3 +33,10 @@ class PlaceCollection:
                     self.places_list.append(perplace)
                 for i in self.places_list:
                     i[2] = int(i[2])
+
+        except IOError:
+            print('File not found.')
+        # Test if the places are sorted correctly
+        # print(self.places_list)
+
+        return self.places_list
