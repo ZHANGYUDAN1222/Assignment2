@@ -48,3 +48,7 @@ class PlaceCollection:
         with open(filename, 'w', newline='') as w_f:
             writer = csv.writer(w_f)
             writer.writerows(self.places_list)
+
+    def add_place(self, place):
+        """Add a new place to self.places_list"""
+        self.places_list.append([place.name, place.country, place.priority, place.v_status])
