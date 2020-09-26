@@ -24,3 +24,8 @@ class Place:
     def __str__(self):
         """Return string representation of place object"""
         return "{} in {} priority {}, visited = {}".format(self.name, self.country, self.priority, self.v_status)
+
+    def mark_visited(self):
+        """Return visited for unvisited place"""
+        self.v_status = 'v'
+        return self.v_status
