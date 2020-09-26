@@ -52,3 +52,14 @@ class PlaceCollection:
     def add_place(self, place):
         """Add a new place to self.places_list"""
         self.places_list.append([place.name, place.country, place.priority, place.v_status])
+
+    def num_nplaces(self):
+        """Return a number of unvisited places"""
+
+        num = 0
+        for i in self.places_list:
+            if i[3] == 'n':
+                num += 1
+            else:
+                pass
+        return num
