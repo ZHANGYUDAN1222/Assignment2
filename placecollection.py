@@ -63,3 +63,19 @@ class PlaceCollection:
             else:
                 pass
         return num
+
+    def sort_places(self,key='visited'):
+        """Return a sorted list by priority"""
+
+        # sort places order by 'n'(unvisited) then 'v'(visited) then priority
+        if key.strip().upper() == 'VISITED':
+            key = 3
+        elif key.strip().upper() == 'PRIORITY':
+            key = 2
+        elif key.strip().upper() == 'COUNTRY':
+            key = 1
+        elif key.strip().upper() == 'NAME':
+            key = 0
+        self.places_list = sorted(self.places_list, key= itemgetter(key, 2))
+
+        return self.places_list
