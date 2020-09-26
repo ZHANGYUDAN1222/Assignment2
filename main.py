@@ -126,6 +126,10 @@ class TravelTrackerApp(App):
         n_place = self.place_collection.num_nplaces()
         self.root.ids.nplace.text = "Places to visit: {}".format(n_place)
 
+    def on_stop(self):
+        """Save all places when closing the app"""
+        self.place_collection.save_places('places.csv')
+
 
 if __name__ == '__main__':
     TravelTrackerApp().run()
