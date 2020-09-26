@@ -43,6 +43,33 @@ class TravelTrackerApp(App):
         # print('change to:',key, KEYs[key])
         self.create_widgets(key)
 
+    def add_place(self):
+        """Add new place to GUI"""
+        new_name = self.root.ids.new_name.text
+        new_country = self.root.ids.new_country.text
+        new_priority = self.root.ids.new_priority.text
+
+        if new_name.strip() == '' or new_country.strip() == '' or new_priority.strip() == '':
+            terminal = 'All fields must be completed'
+        else:
+            try:
+                new_priority = int(new_priority)
+            except ValueError:
+                terminal = 'Please enter a valid number'
+            else:
+                if int(new_priority) <= 0:
+                    terminal = 'Priority must be > 0'
+                else:
+                    terminal = '{} in {}, priority {} added.'.format(new_name, new_country, new_priority)
+                    self.place_collection.places_list.append([new_name, new_country, int(new_priority), 'n'])
+
+                    # print(new_name, new_country, new_priority)
+                    new_btn = Button(id= new_name, text= '{} in {}, priority {} '.format(new_name, new_country, int(new_priority)))
+                    self.root.ids.places_detail.add_widget(new_btn)
+        self.root.ids.terminal.text = terminal
+        self.clear_all()
+        self.create_widgets()
+
 
 if __name__ == '__main__':
     TravelTrackerApp().run()
