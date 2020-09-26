@@ -121,6 +121,11 @@ class TravelTrackerApp(App):
         """Clear all places buttons"""
         self.root.ids.places_detail.clear_widgets()
 
+    def num_nplaces(self):
+        """Return number of unvisited places"""
+        n_place = self.place_collection.num_nplaces()
+        self.root.ids.nplace.text = "Places to visit: {}".format(n_place)
+
 
 if __name__ == '__main__':
     TravelTrackerApp().run()
