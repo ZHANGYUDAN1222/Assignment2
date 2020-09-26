@@ -1,2 +1,60 @@
 # Create your Kivy layout in the kv language here
 BoxLayout:
+
+    BoxLayout:
+        size_hint_x: 0.3
+        orientation: 'vertical'
+        Label:
+            text: 'Sort by:'
+
+        Spinner:
+            id: order_key
+            text: app.current_key
+            values: app.key_codes
+            on_text: app.change_key(self.text)
+
+        Label:
+            text: 'Add New Place...'
+
+        Label:
+            text: 'Name:'
+        TextInput:
+            id: new_name
+
+        Label:
+            text: 'Country'
+        TextInput:
+            id: new_country
+
+        Label:
+            text: 'Priority'
+        TextInput:
+            id: new_priority
+
+        Button:
+            id: add_place
+            text: 'Add Place'
+            on_press: app.add_place()
+
+        Button:
+            text: 'Clear'
+            on_press: app.clear_btn()
+
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            id: nplace
+            size_hint: 0.5,0.07
+            pos_hint:{'x':0.2, 'y':0.5}
+            text:
+
+        BoxLayout:
+            id: places_detail
+            orientation: 'vertical'
+
+        Label:
+            id: terminal
+            size_hint: 0.5, 0.1
+            pos_hint: {'x':0.2, 'y':0}
+            text: 'Welcome to Travel Tracker 2.0'
+
