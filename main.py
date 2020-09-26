@@ -117,6 +117,10 @@ class TravelTrackerApp(App):
             self.clear_all()
             self.create_widgets()
 
+    def clear_all(self):
+        """Clear all places buttons"""
+        self.root.ids.places_detail.clear_widgets()
+
 
 if __name__ == '__main__':
     TravelTrackerApp().run()
