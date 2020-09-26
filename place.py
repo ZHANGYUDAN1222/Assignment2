@@ -20,3 +20,7 @@ class Place:
             self.v_status = 'n'
         elif self.v_status == True:
             self.v_status = 'v'
+
+    def __str__(self):
+        """Return string representation of place object"""
+        return "{} in {} priority {}, visited = {}".format(self.name, self.country, self.priority, self.v_status)
